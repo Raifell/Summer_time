@@ -1,0 +1,46 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Info{% endblock %}
+
+{% block content %}
+    {% if anchor == 'main_kidparent' %}
+        <div class="description">
+            <h4>Подробные данные</h4>
+            <p>Имя: {{ data.name }}</p>
+            <p>Фамилия: {{ data.surname }}</p>
+            <p>Возраст: {{ data.age }}</p>
+        </div>
+    {% elif anchor == 'main_kid' %}
+        <div class="description">
+            <h4>Подробные данные</h4>
+            <p>Имя: {{ data.name }}</p>
+            <p>Фамилия: {{ data.surname }}</p>
+            <p>Возраст: {{ data.age }}</p>
+            <p>Имя родителя: {{ data.parent.name }}</p>
+            <p>Фамилия родителя: {{ data.parent.surname }}</p>
+        </div>
+    {% elif anchor == 'main_icecream' %}
+        <div class="description">
+            <h4>Подробные данные</h4>
+            <p>Название мороженого: {{ data.name }}</p>
+        </div>
+    {% elif anchor == 'main_icecreamshop' %}
+        <div class="description">
+            <h4>Подробные данные</h4>
+            <p>Название магазина: {{ data.name }}</p>
+            {% for el in data.icecream.all %}
+                <p>Мороженое: {{ el }}</p>
+            {% endfor %}
+        </div>
+    {% elif anchor == 'main_icecreamsale' %}
+        <div class="description">
+            <h4>Подробные данные</h4>
+            <p>Имя ребенка: {{ data.buyer.name }}</p>
+            <p>Фамилия ребенка: {{ data.buyer.surname }}</p>
+            <p>Имя родителя ребенка: {{ data.buyer.parent.name }}</p>
+            <p>Фамилия родителя ребенка: {{ data.buyer.parent.surname }}</p>
+            <p>Покупка: {{ data.icecream }}</p>
+            <p>Дата покупки: {{ data.date }}</p>
+        </div>
+    {% endif %}
+{% endblock %}

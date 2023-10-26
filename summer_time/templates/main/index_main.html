@@ -1,0 +1,55 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Main{% endblock %}
+
+{% block content %}
+    {% if variable == 'kids' %}
+        {% for el in data %}
+            <div class="info_card">
+                <h4>Данные ребенка</h4>
+                <p>Имя: {{ el.name }}</p>
+                <p>Фамилия: {{ el.surname }}</p>
+                <p>Возраст: {{ el.age }}</p>
+                <p>Родитель: {{ el.parent }}</p>
+                <a href="{{ el.get_absolute_url }}">Details</a>
+            </div>
+        {% endfor %}
+    {% elif variable == 'parents' %}
+        {% for el in data %}
+            <div class="info_card">
+                <h4>Данные родителя</h4>
+                <p>Имя: {{ el.name }}</p>
+                <p>Фамилия: {{ el.surname }}</p>
+                <p>Возраст: {{ el.age }}</p>
+                <a href="{{ el.get_absolute_url }}">Details</a>
+            </div>
+        {% endfor %}
+    {% elif variable == 'icecreams' %}
+        {% for el in data %}
+            <div class="info_card">
+                <h4>Мороженое</h4>
+                <p>Название: {{ el.name }}</p>
+                <a href="{{ el.get_absolute_url }}">Details</a>
+            </div>
+        {% endfor %}
+    {% elif variable == 'shops' %}
+        {% for el in data %}
+            <div class="info_card">
+                <h4>Магазин</h4>
+                <p>Название: {{ el.name }}</p>
+                <p>Мороженое: {% for ice in el.icecream.all %}{{ ice }} {% endfor %}</p>
+                <a href="{{ el.get_absolute_url }}">Details</a>
+            </div>
+        {% endfor %}
+    {% elif variable == 'sales' %}
+        {% for el in data %}
+            <div class="info_card">
+                <h4>Покупка</h4>
+                <p>Покупатель: {{ el.buyer }}</p>
+                <p>Мороженое: {{ el.icecream }}</p>
+                <p>Дата: {{ el.date }}</p>
+                <a href="{{ el.get_absolute_url }}">Details</a>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

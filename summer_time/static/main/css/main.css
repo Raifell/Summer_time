@@ -1,0 +1,72 @@
+body{
+    display: flex;
+}
+.body{
+    margin: 20px auto;
+    width: 90vw;
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    background: gray;
+    border-radius: 24px;
+}
+.navi{
+    width: 100%;
+    height: 10vh;
+    background: lightskyblue;
+    border-radius: 24px 24px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.navi h3{
+    margin-left: 10vw;
+}
+.link_bar{
+    margin: 0 auto 0 0;
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+.link_bar li, .link_bar a{
+    text-decoration: none;
+    font-weight: bold;
+}
+.link_bar li:hover, .link_bar a:hover{
+    color: brown;
+}
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 2vw;
+}
+.info_card{
+    margin: 0 auto;
+    width: 20vw;
+    height: 28vh;
+    display: flex;
+    flex-direction: column;
+    background: whitesmoke;
+    border-radius: 24px;
+    padding: 10px;
+}
+.description{
+    margin: 0 auto;
+    width: 30vw;
+    min-height: 38vh;
+    display: flex;
+    flex-direction: column;
+    background: whitesmoke;
+    border-radius: 24px;
+    padding: 10px;
+}
+.info_card a{
+    text-decoration: none;
+}
+.info_card a:hover{
+    color: brown;
+}
+.info_card h4, .description h4{
+    margin: auto;
+}
