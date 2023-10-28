@@ -32,5 +32,4 @@ def info_page(request, info_slug):
         if not data:
             anchor = find._meta.db_table
             data = find.objects.filter(slug=info_slug)
-    # print('\n', data, anchor, '\n')
     return render(request, 'main/index_info.html', {'data': data[0], 'anchor': anchor})
